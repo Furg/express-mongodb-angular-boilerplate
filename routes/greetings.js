@@ -3,9 +3,9 @@ var router = express.Router();
 var Greeting = require('../models/greeting');
 
 router.get('/', function(req, res) {
-    Greeting.find({}, function(err, users) {
+    Greeting.find({}, function(err, greeting) {
         if (err) throw err;
-        res.json(users);
+        res.json(greeting);
     });
 });
 
@@ -15,10 +15,10 @@ router.post('/', function(req, res) {
     var newGreeting = Greeting({
       message: message
     });
-    newGreeting.save(function(err) {
+    newGreeting.save(function(err, greeting) {
       if (err) throw err;
-      console.log('Greeting created!');
-      res.json('Greeting created!');
+      console.log('Greeting created');
+      res.json(greeting);
   })
 });
 
