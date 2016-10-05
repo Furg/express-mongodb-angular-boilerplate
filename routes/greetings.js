@@ -30,4 +30,12 @@ router.get('/:id', function(req, res) {
     });
 });
 
+router.delete('/:id', function(req, res){
+    var id = req.params.id;
+    Greeting.findByIdAndRemove(id, function(err) {
+      if (err) throw err;
+      res.sendStatus(200);
+    });
+})
+
 module.exports = router;
