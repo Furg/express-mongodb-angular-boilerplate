@@ -4,7 +4,7 @@ var Greeting = require('../models/greeting');
 
 router.get('/', function(req, res) {
     Greeting.find({}, function(err, greeting) {
-        if (err) res.json(greeting);
+        if (err) return res.sendStatus(404);
         res.json(greeting);
     });
 });
@@ -24,11 +24,19 @@ router.post('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
     var id = req.params.id;
-    Greeting.findById(id, function(err, user) {
+    Greeting.findById(id, function(err, greeting) {
       if (err) return res.sendStatus(404);
-      res.json(user);
+      res.json(greeting);
     });
 });
+
+router.put('/:id', function(req, res){
+    var id = req.params.id;
+    Greeting.findByIdAndUpdate(id, { $set : req.body }, {new: true}, function(err, greeting) {
+       if (err) return res.sendStatus(404);
+       res.json(greeting);
+    });
+})
 
 router.delete('/:id', function(req, res){
     var id = req.params.id;
