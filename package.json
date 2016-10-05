@@ -1,0 +1,16 @@
+{
+  "name": "express-mongodb-angular-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Furg/express-mongodb-angular-boilerplate.git"
+  },
+  "author": "Àngel Buil Ambau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Furg/express-mongodb-angular-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Furg/express-mongodb-angular-boilerplate#readme"
+}
